@@ -11,4 +11,17 @@ class SynonymsController < ApplicationController
       render json: synonym
     end
   end
+
+  def update
+    synonym = Synonym.update(params[:id], synonym_params)
+    render json: synonym
+  rescue StandardError => e
+    render json: { error: e }, status: :bad_request
+  end
+
+  private
+
+  def synonym_params
+    params.require(:synonym).permit(:authorized)
+  end
 end
