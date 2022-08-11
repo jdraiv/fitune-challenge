@@ -2,7 +2,6 @@
 
 # Words controller
 class WordsController < ApplicationController
-  before_action :authenticate_user!
   def synonyms
     word = Words::SynonymsRetriever.new(params[:word]).call
 
