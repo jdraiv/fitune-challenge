@@ -2,6 +2,9 @@
 
 # Synonyms base controller
 class SynonymsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :validate_admin_user, only: [:update]
+
   def create
     synonym = Synonyms::Assign.new(params[:word], params[:synonym]).call
 
