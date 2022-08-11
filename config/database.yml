@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: fitune_challenge_production
-  username: fitune_challenge
-  password: <%= ENV['FITUNE_CHALLENGE_DATABASE_PASSWORD'] %>
+  database: <%= ENV['FITUNE_CHALLENGE_PRODUCTION_DB'] %>
