@@ -14,7 +14,7 @@ module Synonyms
       return OpenStruct.new(error: 'Synonym already exists') if synonym
 
       word.synonyms.create(value: format(@synonym_value))
-      OpenStruct.new(message: 'Synonym has been created')
+      OpenStruct.new(message: 'Synonym has been created', data: { id: word.synonyms.last.id })
     rescue StandardError => e
       OpenStruct.new(error: e)
     end
